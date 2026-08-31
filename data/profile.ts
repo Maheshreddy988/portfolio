@@ -1,0 +1,41 @@
+const configuredGithub = process.env.NEXT_PUBLIC_GITHUB_URL ?? "";
+
+export const profile = {
+  name: "Obulapuram Maheswara Reddy",
+  role: "Backend Developer & DevOps Engineer",
+  tagline:
+    "Building, containerizing, automating, deploying, and monitoring production-ready applications.",
+  summary: "Node.js • AWS • Docker • Kubernetes • Jenkins • GitHub Actions",
+  email: process.env.NEXT_PUBLIC_PROFILE_EMAIL ?? "",
+  phone: process.env.NEXT_PUBLIC_PROFILE_PHONE ?? "",
+  location: "Bengaluru, Karnataka, India",
+  github: configuredGithub,
+  githubHandle:
+    process.env.NEXT_PUBLIC_GITHUB_HANDLE ??
+    configuredGithub.split("/").filter(Boolean).pop() ??
+    "",
+  linkedin: process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "",
+  experience: "2+ Years",
+  currentRole: "Backend Developer & DevOps",
+  company: "Exceleed Consulting and Technologies",
+  resumeUrl: process.env.NEXT_PUBLIC_RESUME_URL ?? "/resume.pdf",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+};
+
+export const stats = [
+  { label: "Years Experience", value: "2+", sub: "Backend + DevOps" },
+  { label: "Major Projects", value: "2", sub: "Production systems" },
+  { label: "Cloud", value: "AWS", sub: "EC2 · S3 · RDS · VPC" },
+  { label: "Automation", value: "CI/CD", sub: "Jenkins · GH Actions" },
+  { label: "Containerization", value: "Docker + K8s", sub: "Helm · Clusters" },
+];
+
+export const heroWorkflow = [
+  { label: "Application", icon: "Code" },
+  { label: "Git", icon: "GitBranch" },
+  { label: "CI/CD", icon: "GitPullRequest" },
+  { label: "Docker", icon: "Box" },
+  { label: "Kubernetes", icon: "Ship" },
+  { label: "AWS", icon: "Cloud" },
+  { label: "Monitoring", icon: "Activity" },
+];
