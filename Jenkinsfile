@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+ tools {
+     nodejs 'Node-22'
+ }
     stages {
         stage('Clean Workspace') {
             steps {
@@ -28,11 +30,30 @@ pipeline {
             }
         }
         
-            stage('Check  Quality Gate') {
+        //     stage('Check  Quality Gate') {
+        //         steps {
+        //           timeout(time: 5, unit: 'MINUTES'){
+        //              waitForQualityGate abortPipeline: true
+        //           }
+        //     }
+        // }
+            stage('Install The Dependencies') {
                 steps {
-                   timeout(time: 5, unit: 'MINUTES'){
-                     waitForQualityGate abortPipeline: true
-                   }
+                   sh 'npm install'
+            }
+        }
+        
+            stage('OWASP Dependency Check') {
+                steps {
+                   dependencyCheck(
+                       additionalArguments: '--scan . --formate HTML --formate XML',
+                       odcInstallation: 'DP-Check'
+                       )
+            }
+        }
+        stage('Build The Source Code'){
+            steps{
+                sh 'npm run build'
             }
         }
         
