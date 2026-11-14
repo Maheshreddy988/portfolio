@@ -37,13 +37,13 @@ export function AwsSection() {
           <div className="mb-12">
             {/* <span className="font-mono text-sm text-primary">// aws-architecture</span> */}
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">
-              AWS infrastructure architecture
+              AWS application infrastructure
             </h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
             <p className="mt-4 text-muted-foreground max-w-2xl">
-              How application components fit together on AWS — from the public
-              internet through load balancing, container orchestration,
-              databases, and monitoring.
+              An example application delivery path using the AWS services I have
+              worked with — compute, storage, database, networking, and access
+              configuration.
             </p>
           </div>
 
@@ -78,7 +78,7 @@ export function AwsSection() {
             {/* Right: AWS service cards */}
             <div>
               <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">
-                AWS Services I Work With
+                AWS services used in application delivery
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {awsServices.map((service) => {

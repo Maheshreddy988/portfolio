@@ -16,11 +16,14 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const siteUrl = profile.siteUrl || "http://localhost:3000";
+const siteUrl = profile.siteUrl;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${profile.name} (Resume)`,
+  title: {
+    default: `${profile.name} | ${profile.role}`,
+    template: `%s | ${profile.name}`,
+  },
   description: profile.tagline,
   keywords: [
     "Backend Developer",
@@ -53,6 +56,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${profile.name} | ${profile.role}`,
     description: profile.tagline,
+  },
+  icons: {
+    icon: "/icon.svg",
   },
   robots: {
     index: true,

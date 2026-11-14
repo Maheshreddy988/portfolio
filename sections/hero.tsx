@@ -58,7 +58,7 @@ export function HeroSection() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance leading-[1.1]">
               Backend Developer
               <br />
-              <span className="text-primary text-glow">& DevOps Engineer</span>
+              <span className="text-primary text-glow">| DevOps Engineer</span>
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed text-balance">

@@ -3,12 +3,8 @@ import {
   Cloud,
   Container,
   Server,
-  Database,
   Activity,
-  Terminal,
   ShieldCheck,
-  GitBranch,
-  Settings,
 } from "lucide-react";
 
 export interface SkillCategory {
@@ -20,57 +16,33 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Cloud",
-    icon: Cloud,
-    description: "AWS infrastructure provisioning and management",
-    skills: ["EC2", "S3", "VPC", "IAM", "RDS", "EBS", "Auto Scaling", "AMI"],
-  },
-  {
-    title: "DevOps",
-    icon: GitBranch,
-    description: "CI/CD pipelines and container orchestration",
-    skills: ["Docker", "Kubernetes", "Jenkins", "GitHub Actions"],
-  },
-  {
-    title: "Infrastructure",
-    icon: Settings,
-    description: "Infrastructure as code and configuration management",
-    skills: ["Terraform", "Ansible"],
-  },
-  {
-    title: "Backend",
+    title: "Backend Development",
     icon: Server,
-    description: "REST API development and server-side logic",
-    skills: ["Node.js", "Express.js", "JavaScript", "REST APIs"],
+    description: "API development and data access for application features",
+    skills: ["Node.js", "Express.js", "JavaScript", "REST APIs", "PostgreSQL", "MongoDB"],
   },
   {
-    title: "Databases",
-    icon: Database,
-    description: "Relational and document database design",
-    skills: ["PostgreSQL", "MongoDB"],
-  },
-  {
-    title: "Monitoring",
-    icon: Activity,
-    description: "Metrics collection and visualization",
-    skills: ["Prometheus", "Grafana"],
-  },
-  {
-    title: "Operating Systems",
-    icon: Terminal,
-    description: "Server administration and scripting",
-    skills: ["Linux-(Ubuntu)", "Windows"],
-  },
-  {
-    title: "Automation",
+    title: "Delivery & Containers",
     icon: Container,
-    description: "Shell scripting for operational tasks",
-    skills: ["Bash", "Shell Scripting"],
+    description: "Source control, CI/CD, and containerized application delivery",
+    skills: ["Git", "Docker", "Kubernetes", "Jenkins", "GitHub Actions"],
   },
   {
-    title: "Security / DevSecOps",
+    title: "AWS & Infrastructure",
+    icon: Cloud,
+    description: "Application infrastructure across compute, storage, databases, networking, and access",
+    skills: ["EC2", "S3", "RDS", "VPC", "IAM", "Terraform"],
+  },
+  {
+    title: "Operations & Monitoring",
+    icon: Activity,
+    description: "Linux diagnostics, logs, dashboards, and application health checks",
+    skills: ["Linux", "Bash", "Prometheus", "Grafana"],
+  },
+  {
+    title: "Working Knowledge",
     icon: ShieldCheck,
-    description: "Code quality and vulnerability scanning",
-    skills: ["SonarQube", "Trivy", "OWASP ZAP"],
+    description: "Tools used alongside delivery workflows",
+    skills: ["Ansible", "SonarQube", "Trivy", "OWASP ZAP"],
   },
 ];

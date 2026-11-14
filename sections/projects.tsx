@@ -38,12 +38,12 @@ export function ProjectsSection() {
           <div className="mb-12">
             {/* <span className="font-mono text-sm text-primary">// projects</span> */}
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">
-              Production projects
+              Project work
             </h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
             <p className="mt-4 text-muted-foreground max-w-2xl">
-              Real systems I have built and shipped — from backend APIs to
-              containerized deployments on AWS with CI/CD automation.
+              Two genuine projects showing backend APIs, containerized application
+              delivery, AWS configuration, CI/CD, and troubleshooting work.
             </p>
           </div>
 
@@ -188,10 +188,10 @@ export function ProjectsSection() {
                         </div>
                       </div>
 
-                      {/* Responsibilities */}
+                      {/* My role */}
                       <div className="mb-6">
                         <h4 className="text-sm font-semibold mb-3">
-                          Key Responsibilities
+                          My Role
                         </h4>
                         <ul className="space-y-2">
                           {project.responsibilities.map((r) => (
@@ -223,6 +223,28 @@ export function ProjectsSection() {
                             </div>
                           ))}
                         </div>
+                      </div>
+
+                      {/* Delivery evidence */}
+                      <div className="grid md:grid-cols-2 gap-4 mb-6">
+                        {[
+                          { label: "CI/CD", value: project.cicd },
+                          { label: "Deployment", value: project.deployment },
+                          { label: "Monitoring", value: project.monitoring },
+                          { label: "Challenges", value: project.challenges },
+                        ].map((item) => (
+                          <div key={item.label} className="p-4 rounded-lg border border-border bg-background/40">
+                            <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">
+                              {item.label}
+                            </h4>
+                            <p className="text-sm text-muted-foreground">{item.value}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mb-6 p-4 rounded-lg border border-primary/20 bg-primary/5">
+                        <h4 className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Result</h4>
+                        <p className="text-sm text-muted-foreground">{project.result}</p>
                       </div>
 
                       {/* Links */}

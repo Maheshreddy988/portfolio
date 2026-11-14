@@ -145,7 +145,7 @@ export function Navbar() {
               <SheetContent side="right" className="w-72 bg-background">
                 <div className="flex items-center justify-between mt-2 mb-6">
                   <span className="font-mono text-sm font-semibold">
-                    <span className="text-primary">om</span>
+                    <span className="text-primary">MaheshReddy</span>
                     <span className="text-muted-foreground">.</span>
                     <span>dev</span>
                   </span>

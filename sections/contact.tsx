@@ -94,7 +94,7 @@ export function ContactSection() {
             </h2>
             <div className="mt-4 mx-auto h-px w-16 bg-gradient-to-r from-primary to-transparent" />
             <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
-              Open to DevOps, Backend Developer, and Cloud Engineer roles. Reach
+              Open to Backend Developer and DevOps Engineer roles. Reach
               out through any channel below.
             </p>
           </div>

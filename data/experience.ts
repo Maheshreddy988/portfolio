@@ -10,7 +10,7 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: 'Backend Developer & DevOps',
+    role: 'Backend Developer | DevOps Engineer',
     company: profile.company,
     location: profile.location,
     period: '2024 – Present',
@@ -19,14 +19,13 @@ export const experiences: Experience[] = [
       'Backend REST API development using Node.js and Express.js',
       'MongoDB and PostgreSQL database design',
       'Docker containerization of application services',
-      'Kubernetes deployment and cluster management',
-      'Jenkins CI/CD pipeline configuration',
-      'GitHub Actions workflow automation',
-      'AWS infrastructure provisioning and management',
-      'Linux/Bash automation for operational tasks',
-      'Prometheus and Grafana monitoring setup',
-      'Production troubleshooting and incident response',
-      'Git-based development workflows with branching strategies',
+      'Kubernetes application deployment and configuration updates',
+      'Jenkins and GitHub Actions pipeline configuration',
+      'Git workflows with branches, pull requests, and reviews',
+      'AWS compute, storage, database, and networking configuration',
+      'Linux and Bash tasks for application operations',
+      'Prometheus and Grafana dashboard and alert configuration',
+      'Application troubleshooting using logs, metrics, and diagnostics',
     ],
     highlights: [
       'Application Development',

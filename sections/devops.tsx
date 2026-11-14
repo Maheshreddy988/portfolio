@@ -22,9 +22,9 @@ export function DevOpsSection() {
             </h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
             <p className="mt-4 text-muted-foreground max-w-2xl">
-              The pipeline I use to take code from a developer&apos;s laptop to
-              production — with quality gates, security scanning, and monitoring
-              at every stage.
+              An example delivery flow I contribute to: Git workflows, build and
+              test steps, container packaging, application deployment, and
+              monitoring.
             </p>
           </div>
 

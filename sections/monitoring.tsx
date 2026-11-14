@@ -74,7 +74,7 @@ export function MonitoringSection() {
                 </p>
               </div>
               <div className="flex items-center gap-2">
-                <span className="flex h-2 w-2 rounded-full bg-green-500" />
+                <span className="flex h-2 w-2 rounded-full bg-primary/70" />
                 <span className="text-xs font-mono text-muted-foreground">
                   prometheus · grafana
                 </span>
@@ -117,10 +117,10 @@ export function MonitoringSection() {
             <div className="mt-6 p-4 rounded-lg border border-border bg-background/40">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-medium text-muted-foreground">
-                  HTTP Request Rate (last 1h)
+                  Illustrative request activity
                 </span>
                 <span className="text-xs font-mono text-primary">
-                  ~1.2k req/min
+                  demo trend
                 </span>
               </div>
               <div className="flex items-end gap-1 h-20">

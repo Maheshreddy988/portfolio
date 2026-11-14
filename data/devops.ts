@@ -65,7 +65,7 @@ export const devOpsPipeline: PipelineStage[] = [
     label: "Deploy",
     technology: "Kubernetes / AWS",
     description:
-      "Rolling updates to Kubernetes clusters on AWS with health checks.",
+      "Kubernetes application deployments on AWS with health checks.",
     icon: Cloud,
   },
   {
@@ -81,7 +81,7 @@ export const devOpsPipeline: PipelineStage[] = [
     label: "Troubleshoot",
     technology: "Logs / Linux / Metrics",
     description:
-      "Log analysis, system diagnostics, and application metrics for incident response.",
+      "Log analysis, Linux diagnostics, and application metrics for troubleshooting.",
     icon: Stethoscope,
   },
 ];
@@ -156,45 +156,45 @@ export interface MonitoringMetric {
 }
 
 export const monitoringMetrics: MonitoringMetric[] = [
-  { label: "CPU Usage", value: "42", unit: "%", trend: "stable", icon: "Cpu" },
+  { label: "CPU Usage", value: "Example", unit: "", trend: "stable", icon: "Cpu" },
   {
     label: "Memory Usage",
-    value: "68",
-    unit: "%",
+    value: "Example",
+    unit: "",
     trend: "up",
     icon: "MemoryStick",
   },
   {
     label: "HTTP Requests",
-    value: "1.2k",
-    unit: "/min",
+    value: "Example",
+    unit: "",
     trend: "up",
     icon: "Globe",
   },
   {
     label: "Response Time",
-    value: "124",
-    unit: "ms",
+    value: "Example",
+    unit: "",
     trend: "down",
     icon: "Timer",
   },
   {
     label: "App Health",
-    value: "Healthy",
+    value: "Example",
     unit: "",
     trend: "stable",
     icon: "HeartPulse",
   },
   {
     label: "Container Health",
-    value: "8/8",
-    unit: "Running",
+    value: "Example",
+    unit: "",
     trend: "stable",
     icon: "Container",
   },
   {
     label: "Database Health",
-    value: "Connected",
+    value: "Example",
     unit: "",
     trend: "stable",
     icon: "Database",
@@ -269,7 +269,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Triggering pipeline...",
     detail: "A Git push event triggers the CI/CD pipeline automatically.",
     duration: 2000,
-    logs: ["Pushing to origin/main...", "Commit received: a3f9c2e"],
+    logs: ["Example pipeline event", "Illustrative source update received"],
   },
   {
     step: "02",
@@ -278,7 +278,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Fetching source code...",
     detail: "Source code is checked out from the repository branch.",
     duration: 2000,
-    logs: ["Cloning repo...", "Workspace ready: 142 files"],
+    logs: ["Example checkout step", "Illustrative workspace prepared"],
   },
   {
     step: "03",
@@ -287,7 +287,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Installing packages...",
     detail: "Project dependencies are installed and cached for reuse.",
     duration: 2000,
-    logs: ["Running npm ci...", "Dependencies installed: 387 packages"],
+    logs: ["Example dependency install", "Illustrative install complete"],
   },
   {
     step: "04",
@@ -296,7 +296,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Running automated tests...",
     detail: "Code is linted and unit tests are executed against the build.",
     duration: 2000,
-    logs: ["Running test suite...", "Tests passed: 38/38"],
+    logs: ["Example test step", "Illustrative test result"],
   },
   {
     step: "05",
@@ -305,7 +305,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Analyzing source quality...",
     detail: "Static analysis and code quality gates are evaluated.",
     duration: 2000,
-    logs: ["Running SonarQube analysis...", "Quality gate: PASSED"],
+    logs: ["Example quality scan", "Illustrative quality result"],
   },
   {
     step: "06",
@@ -314,7 +314,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Scanning dependencies and image...",
     detail: "Vulnerability scanning with Trivy and OWASP ZAP.",
     duration: 2000,
-    logs: ["Scanning with Trivy...", "No critical vulnerabilities found"],
+    logs: ["Example security scan", "Illustrative scan result"],
   },
   {
     step: "07",
@@ -323,7 +323,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Building container image...",
     detail: "The application is packaged into a reproducible Docker image.",
     duration: 2000,
-    logs: ["Building Docker image...", "Image built: app:v1.2.3"],
+    logs: ["Example image build", "Illustrative image created"],
   },
   {
     step: "08",
@@ -332,7 +332,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Tagging / pushing image...",
     detail: "The image is tagged and pushed to the container registry.",
     duration: 2000,
-    logs: ["Tagging image...", "Image pushed to registry"],
+    logs: ["Example image tag", "Illustrative registry push"],
   },
   {
     step: "09",
@@ -341,7 +341,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Rolling out deployment...",
     detail: "A rolling update is applied to the Kubernetes cluster on AWS.",
     duration: 2000,
-    logs: ["Applying rollout to k8s...", "Deployment rolled out: 3/3 pods"],
+    logs: ["Example deployment step", "Illustrative rollout complete"],
   },
   {
     step: "10",
@@ -350,7 +350,7 @@ export const ciCdPipeline: CiCdStage[] = [
     runningText: "Verifying application health...",
     detail: "Liveness and readiness probes confirm the deployment is healthy.",
     duration: 2000,
-    logs: ["Probing /health endpoint...", "Health check passed: 200 OK"],
+    logs: ["Example health check", "Illustrative health result"],
   },
 ];
 

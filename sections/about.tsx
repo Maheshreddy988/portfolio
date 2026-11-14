@@ -22,14 +22,13 @@ const focusAreas = [
   { icon: Wrench, label: "Production Troubleshooting" },
 ];
 
-const ownershipPoints = [
-  "Backend development with Node.js and Express.js",
-  "Cloud infrastructure on AWS",
-  "Containerization with Docker and Kubernetes",
-  "CI/CD automation with Jenkins and GitHub Actions",
-  "Production deployment and release management",
-  "Monitoring with Prometheus and Grafana",
-  "Production troubleshooting and incident response",
+const contributionPoints = [
+  "Backend APIs with Node.js, Express.js, and databases",
+  "Git workflows, pull requests, and CI/CD configuration",
+  "Docker images and Kubernetes application deployments",
+  "AWS application infrastructure across compute, storage, and databases",
+  "Terraform-based infrastructure configuration",
+  "Prometheus, Grafana, logs, and application troubleshooting",
 ];
 
 export function AboutSection() {
@@ -46,7 +45,7 @@ export function AboutSection() {
           <div className="mb-12">
             {/* <span className="font-mono text-sm text-primary">// about</span> */}
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">
-              End-to-end engineering ownership
+              Contributing across the delivery lifecycle
             </h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
           </div>
@@ -55,30 +54,26 @@ export function AboutSection() {
             {/* Left: Description */}
             <div>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I work across the full delivery lifecycle — from writing backend
-                APIs to containerizing services, automating deployments, and
-                monitoring production systems. I enjoy owning applications
-                end-to-end: building the code, shipping it through CI/CD,
-                running it on Kubernetes, and keeping it healthy in production.
+                I contribute across the delivery lifecycle — from writing backend
+                APIs to containerizing services, supporting CI/CD, deploying
+                applications, and checking application health with logs and metrics.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                My day-to-day spans application development and infrastructure
-                delivery. That means writing REST APIs in Node.js, designing
-                databases, building Docker images, configuring Jenkins
-                pipelines, deploying to Kubernetes on AWS, and setting up
-                monitoring with Prometheus and Grafana. When something breaks in
-                production, I dig into logs, metrics, and system diagnostics to
-                find the root cause.
+                My work includes REST APIs in Node.js, database changes, Docker
+                images, Jenkins and GitHub Actions configuration, Kubernetes
+                application deployment, and AWS configuration. When an application
+                issue occurs, I use logs, metrics, and Linux diagnostics to help
+                identify and resolve it.
               </p>
             </div>
 
-            {/* Right: Ownership checklist */}
+            {/* Right: Contribution checklist */}
             <Card className="p-6 bg-card/50">
               <h3 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">
-                What I Own
+                Practical experience
               </h3>
               <ul className="space-y-3">
-                {ownershipPoints.map((point) => (
+                {contributionPoints.map((point) => (
                   <li key={point} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
                     <span className="text-sm">{point}</span>

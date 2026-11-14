@@ -35,13 +35,13 @@ export function TroubleshootingSection() {
           <div className="mb-12">
             {/* <span className="font-mono text-sm text-primary">// troubleshooting</span> */}
             <h2 className="mt-2 text-3xl sm:text-4xl font-bold tracking-tight">
-              Production Troubleshooting
+              Application Troubleshooting
             </h2>
             <div className="mt-4 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
             <p className="mt-4 text-muted-foreground max-w-2xl">
-              Problems I work with and troubleshoot in production environments.
-              These are the categories of issues I diagnose and resolve as part
-              of my DevOps responsibilities.
+              Issues I help investigate during application delivery and runtime.
+              I use logs, metrics, Linux diagnostics, and team workflows to
+              narrow down the cause and support a resolution.
             </p>
           </div>
 

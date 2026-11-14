@@ -13,6 +13,11 @@ export interface Project {
   responsibilities: string[];
   features: string[];
   architecture: string[];
+  cicd: string;
+  deployment: string;
+  monitoring: string;
+  challenges: string;
+  result: string;
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -22,7 +27,7 @@ export const projects: Project[] = [
     id: 'project-management-system',
     title: 'Project Management System',
     year: '2024',
-    role: 'Backend Developer & DevOps',
+    role: 'Backend Developer | DevOps Engineer',
     problem:
       'Manual paperwork and fragmented tracking across plants and departments created bottlenecks in project workflows and approvals.',
     solution:
@@ -36,10 +41,10 @@ export const projects: Project[] = [
     responsibilities: [
       'Designed and developed REST APIs for project lifecycle management',
       'Implemented role-based access control across 7 user roles',
-      'Built Docker images and deployed to Kubernetes clusters',
-      'Configured Jenkins CI/CD pipelines for automated builds and deployments',
-      'Set up Prometheus and Grafana for application monitoring',
-      'Managed AWS infrastructure for staging and production environments',
+      'Built Docker images and supported Kubernetes application deployments',
+      'Configured Jenkins CI/CD steps for repeatable builds and deployments',
+      'Configured Prometheus and Grafana views for application health checks',
+      'Supported AWS configuration for the application environment',
     ],
     features: [
       'Project creation and lifecycle management',
@@ -58,12 +63,17 @@ export const projects: Project[] = [
       'AWS',
       'Monitoring',
     ],
+    cicd: 'Git and Jenkins are used to run the build and deployment steps for application changes.',
+    deployment: 'The service is packaged with Docker and deployed as a Kubernetes application on AWS infrastructure.',
+    monitoring: 'Prometheus and Grafana are used to review application health and support troubleshooting.',
+    challenges: 'Replacing manual paperwork while supporting plant-based access and role-specific approval workflows.',
+    result: 'A centralized project workflow application that brings project, approval, and finance-tracking steps into one system.',
   },
   {
     id: 'energy-management-project',
     title: 'Energy Management Project',
     year: '2025 – Present',
-    role: 'Backend Developer & DevOps',
+    role: 'Backend Developer | DevOps Engineer',
     problem:
       'Organizations lacked visibility into electricity cost savings achievable through Open Access power and rooftop solar generation.',
     solution:
@@ -79,7 +89,7 @@ export const projects: Project[] = [
       'Implemented Open Access pricing and grid tariff comparison logic',
       'Built monthly savings calculation engine with solar generation data',
       'Containerized services with Docker for consistent deployments',
-      'Configured Jenkins and GitHub Actions CI/CD pipelines',
+      'Configured Jenkins and GitHub Actions workflows for application delivery',
       'Automated operational tasks with Bash scripting',
     ],
     features: [
@@ -98,5 +108,10 @@ export const projects: Project[] = [
       'Monthly Cost Comparison',
       'Savings',
     ],
+    cicd: 'Jenkins and GitHub Actions support repeatable build and delivery steps as the application evolves.',
+    deployment: 'Docker is used to package the application consistently for its AWS-based environment.',
+    monitoring: 'Application logs and database connectivity are checked while troubleshooting delivery and runtime issues.',
+    challenges: 'Keeping Open Access, grid tariff, and solar-generation inputs clear enough to support monthly cost comparisons.',
+    result: 'A working application for organizing energy inputs and presenting monthly electricity cost-saving comparisons.',
   },
 ];
