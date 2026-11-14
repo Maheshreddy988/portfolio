@@ -47,10 +47,10 @@ jobs:
           push: false
           tags: ${{secrets.DOCKERHUB_USERNAME}}/Learning:${{github.sha}}
           cache-from: type=gha
-          cache-to: type:gha,mod=max
+          cache-to: type=gha,mod=max
 
           #what software packages are present inside your Docker image.
           #software bill of materials
           sbom: true
-          provence: mode=max
+          provenance: mode=max
   
