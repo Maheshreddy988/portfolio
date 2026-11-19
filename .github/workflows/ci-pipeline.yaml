@@ -46,7 +46,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{github.actor}}
-          password: ${{secrets.GitHub_TOKEN}}
+          password: ${{secrets.GITHUB_TOKEN}}
 
 ## authinticate Aws
       - name: Configure AWS credentials
@@ -64,6 +64,9 @@ jobs:
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Set lowercase GitHub username
+        run: echo "GHCR_OWNER=$(echo '${{ github.actor }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_ENV"
       
 ## build and push Docker image
       - name: build and push Docker image 
@@ -74,7 +77,7 @@ jobs:
           push: true
           tags: |
              ${{ secrets.DOCKERHUB_USERNAME}}/portfolio:${{ github.sha }}
-             ghcr.io/${{ github.actor }}/portfolio:${{ github.sha }}
+             ghcr.io/${{ env.GHCR_OWNER }}/portfolio:${{ github.sha }}
              ${{ steps.login-ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ github.sha }}
 
           cache-from: type=gha
