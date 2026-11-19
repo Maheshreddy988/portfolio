@@ -1,56 +1,88 @@
-name: CI-PIPELINE
+name: portfolio-ci-pipeline
+
 
 on:
   push:
     branches: ["main"]
 
-#Statrted pipeline
+permissions:
+  contents: read
+  id-token: write
+  packages: write
 
-jobs: 
-  build-test:
+jobs:
+  buildDocker:
     runs-on: ubuntu-latest
 
-    steps:
-      
-      - name: Checkout the source Code
-        uses: actions/checkout@v4
 
+    steps:
+      - name: checkout the source Code
+        uses: actions/checkout@v4
       
-      - name: install The node Tool
+      - name: configure node packeges
         uses: actions/setup-node@v7
         with:
           node-version: 20
           cache: npm
-        
+
       - name: install dependences
         run: npm install
 
-      - name: build dependences
-        run : npm run build
+      - name: build packages
+        run: npm run build
 
-
-      - name: setup Docker buildx
+      - name: Configuredocker buildx
         uses: docker/setup-buildx-action@v4
 
-      
-      - name: Login to Docker Hub
+## Login TO DockerHub
+      - name: Login To Docker
         uses: docker/login-action@v4
         with:
-          username: ${{secrets.DOCKERHUB_USERNAME}}
-          password: ${{secrets.DOCKERHUB_TOKEN}}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+## Login TO GiTHubRegistry
+      - name:  Login To GHCR
+        uses:  docker/login-action@v4
+        with:
+          registry: ghr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GitHub_TOKEN}}
 
-      - name: build docker image
+## authinticate Aws
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
+           aws-region: ${{vars.AWS_REGION_NAME}}
+      
+## verify Aws Identity
+      - name: Verify AWS Identity
+        run: aws sts get-caller-identity
+
+
+## Login To the ecr
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+      
+## build and push Docker image
+      - name: build and push Docker image 
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: ./Dockerfile
+          file: Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/test-portfolio:${{github.sha}}
-          cache-from: type=gha
-          cache-to: type=gha,mod=max
+          tags: |
+             ${{ secrets.DOCKERHUB_USERNAME}}/portfolio:${{ github.sha }}
+             ghr.io/${{ github.actor }}/portfolio:${{ github.sha }}
+             ${{ steps.login-ecr.outputs.registry }}/${{ vars.ECR_REPOSITORY }}:${{ github.sha }}
 
-          #what software packages are present inside your Docker image.
-          #software bill of materials
+          cache-from: type:gha
+          cache-to: type:gha,mode=max
           sbom: true
           provenance: mode=max
-  
+      
+
+
+
+       
