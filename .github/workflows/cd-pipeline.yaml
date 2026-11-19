@@ -38,6 +38,7 @@ jobs:
           ssh-keyscan -H "${{secrets.AWS_EC2IP}}" >> ~/.ssh/known_hosts
 
 
+      
       - name: Deploy On AWS
         env:
           AWS_EC2IP: ${{ secrets.AWS_EC2IP }}
@@ -45,16 +46,39 @@ jobs:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           IMAGE_TAG: ${{ github.event.workflow_run.head_sha }}
-        run: |
-          ssh -i ~/.ssh/ec2_key ${{secrets.EC2_USER}}@${{secrets.AWS_EC2IP}} \
 
-          'sudo apt update &&
-           sudo apt install -y docker.io &&
-           sudo systemctl enable docker &&
-           sudo systemctl start docker &&
-           sudo docker pull '$DOCKERHUB_USERNAME/test-portfolio:$IMAGE_TAG' &&
-           sudo docker stop portfolio || true"
-          '
+        run: |
+          ssh -i ~/.ssh/ec2_key \
+          "$EC2_USER@$AWS_EC2IP" 'bash -se' <<EOF
+
+            set -e
+
+            echo "Updating Ubuntu packages..."
+            sudo apt update
+
+            echo "Installing Docker..."
+            sudo apt install -y docker.io
+
+            echo "Starting Docker..."
+            sudo systemctl enable --now docker
+
+            echo "Pulling Docker image..."
+            sudo docker pull ${DOCKERHUB_USERNAME}/test-portfolio:${IMAGE_TAG}
+
+            echo "Stopping old container..."
+            sudo docker rm -f portfolio 2>/dev/null || true
+
+            echo "Starting new container..."
+            sudo docker run -d \
+              --name portfolio \
+              --restart unless-stopped \
+              -p 80:80 \
+              ${DOCKERHUB_USERNAME}/test-portfolio:${IMAGE_TAG}
+
+            echo "Deployment completed successfully!"
+
+          EOF
+
       
 
       - name: Deployment Success
