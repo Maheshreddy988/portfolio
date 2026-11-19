@@ -21,14 +21,6 @@ jobs:
       github.event.workflow_run.head_branch == 'main'
 
     steps:
-      - name: Configure AWS Credentials using OIDC
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: ${{ vars.AWS_ROLE_ARN }}
-          aws-region: ${{vars.AWS_REGION_NAME}}
-
-      - name: Verify AWS Identity
-        run: aws sts get-caller-identity
 
       - name: Setup SSh
         run: |
